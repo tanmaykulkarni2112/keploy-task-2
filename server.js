@@ -1,16 +1,8 @@
-const express = require("express");
-const app = express();
-app.use(express.json());
-const dotenv = require('dotenv')
-const router = require("./routes/attendanceRoute")
-const connectDB = require('./config/config')
+// server.js
+const app = require("./app");
 
-connectDB();
+const PORT = process.env.PORT || 3000;
 
-dotenv.config();
-app.use('/api/attendance', router);
-
-app.listen(3000,()=>{
-    console.log("listening to port 3000");
-    console.log(process.env.UNAME);
-})
+app.listen(PORT, () => {
+  console.log(`Server is listening on port ${PORT}`);
+});
